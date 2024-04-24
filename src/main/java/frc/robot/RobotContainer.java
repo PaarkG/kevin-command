@@ -49,8 +49,8 @@ public class RobotContainer {
   private void configureBindings() {
     driverController.y().onTrue(Commands.runOnce(swerve::zeroGyro, swerve));
     
-    operatorController.rightTrigger().whileTrue(new RunIntakeCommand(processor));
-    operatorController.leftTrigger().whileTrue(new RunOuttakeCommand(processor));
+    operatorController.rightTrigger().whileTrue(new RunIntakeCommand(processor, pivot));
+    operatorController.leftTrigger().whileTrue(new RunOuttakeCommand(processor, pivot));
 
     operatorController.povUp().onTrue(climber.raise());
     operatorController.povDown().onTrue(climber.lower());
